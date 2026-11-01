@@ -22,12 +22,6 @@ public interface ProductRepository extends MongoRepository<Product, String> {
      */
     Optional<Product> findBySku(String sku);
 
-    /**
-     * Indica si existe un producto con ese SKU.
-     *
-     * @param sku código
-     * @return {@code true} si existe
-     */
     boolean existsBySku(String sku);
 
     /**
