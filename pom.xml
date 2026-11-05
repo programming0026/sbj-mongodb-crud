@@ -66,6 +66,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
+                <configuration>
+                    <!-- Traza completa en la consola (con todas las causas) cuando falla una prueba -->
+                    <trimStackTrace>false</trimStackTrace>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
