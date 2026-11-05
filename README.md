@@ -83,7 +83,7 @@ También puedes inspeccionar la base: `docker exec -it sbj-mongodb mongosh catal
 mvn verify
 ```
 
-`ProductApiIT` (8 pruebas) levanta un contenedor `mongo:8` con **Testcontainers**, de modo que no hace falta tener MongoDB instalado y cada ejecución parte de una base limpia. Cubre crear, leer, 404, validación, SKU duplicado (por la aplicación y por el índice único), actualizar con versión, borrar, búsquedas, ajuste atómico de stock y la agregación. Si Docker no está disponible las pruebas se omiten. La primera vez descarga la imagen de MongoDB y puede tardar.
+`ProductApiIT` (8 pruebas) levanta un contenedor `mongo:8.0` con **Testcontainers**, de modo que no hace falta tener MongoDB instalado y cada ejecución parte de una base limpia. Cubre crear, leer, 404, validación, SKU duplicado (por la aplicación y por el índice único), actualizar con versión, borrar, búsquedas, ajuste atómico de stock y la agregación. Si Docker no está disponible las pruebas se omiten. La primera vez descarga la imagen de MongoDB y puede tardar.
 
 ## Buenas prácticas
 

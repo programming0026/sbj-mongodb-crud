@@ -13,6 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.juniverse.mongo.repository.ProductRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.slf4j.LoggerFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.containers.output.Slf4jLogConsumer;
 import org.testcontainers.mongodb.MongoDBContainer;
 
 /**
@@ -35,9 +37,14 @@ import org.testcontainers.mongodb.MongoDBContainer;
 @DisplayName("CRUD de productos con MongoDB")
 class ProductApiIT {
 
+    /**
+     * MongoDB 8.0 fijo: la etiqueta {@code mongo:8} apunta a la última versión 8.x, incluidas las de la serie rápida,
+     * y puede cambiar sin aviso. El log de {@code mongod} se muestra en la consola para diagnosticar arranques fallidos.
+     */
     @Container
     @ServiceConnection
-    static MongoDBContainer mongo = new MongoDBContainer("mongo:8");
+    static MongoDBContainer mongo = new MongoDBContainer("mongo:8.0")
+            .withLogConsumer(new Slf4jLogConsumer(LoggerFactory.getLogger("mongod")));
 
     @Autowired
     private WebApplicationContext context;

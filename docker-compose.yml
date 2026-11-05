@@ -1,7 +1,7 @@
 # MongoDB local para probar el ejemplo:  docker compose up -d
 services:
   mongo:
-    image: mongo:8
+    image: mongo:8.0
     container_name: sbj-mongodb
     ports:
       - "27017:27017"
