@@ -18,7 +18,9 @@ concurrency:
 jobs:
   build:
     name: Compilar y probar
-    runs-on: ubuntu-latest
+    # Ubuntu 24.04 fijo: MongoDB 8.x no arranca con el kernel 6.19 o posterior de ubuntu-latest (Ubuntu 26).
+    # Ver https://jira.mongodb.org/browse/SERVER-121912
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     # MongoDB para las pruebas de integración: con MONGODB_URI definida, las pruebas usan este servicio
     # en lugar de levantar su propio contenedor con Testcontainers.
