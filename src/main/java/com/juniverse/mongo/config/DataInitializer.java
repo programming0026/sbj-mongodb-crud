@@ -9,17 +9,11 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.mongodb.MongoDatabaseFactory;
-import org.springframework.data.mongodb.core.MongoTemplate;
 
 /** Carga productos de ejemplo al arrancar si la colección está vacía (se desactiva con {@code app.seed=false}). */
 @Configuration
 public class DataInitializer {
 
-    @Bean
-	MongoTemplate mongoTemplate(MongoDatabaseFactory factory) {
-        return new MongoTemplate(factory);
-    }
     /**
      * Runner que inserta los datos de ejemplo.
      *
