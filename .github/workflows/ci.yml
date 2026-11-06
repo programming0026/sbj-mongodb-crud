@@ -20,6 +20,11 @@ jobs:
     name: Compilar y probar
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    services:
+      mongodb:
+      image: mongo:8
+      ports:
+        - 27017:27017
     steps:
       - uses: actions/checkout@v5
       - name: Java 21
