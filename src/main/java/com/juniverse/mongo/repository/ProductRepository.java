@@ -7,11 +7,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
+import org.springframework.stereotype.Repository;
 
 /**
  * Repositorio de productos. {@link MongoRepository} ya trae el CRUD ({@code save}, {@code findById}, {@code findAll},
  * {@code deleteById}...); aquí se añaden consultas derivadas del nombre del método y una escrita con {@code @Query}.
  */
+@Repository
 public interface ProductRepository extends MongoRepository<Product, String> {
 
     /**
