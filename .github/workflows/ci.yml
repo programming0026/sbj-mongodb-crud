@@ -22,9 +22,9 @@ jobs:
     timeout-minutes: 30
     services:
       mongodb:
-      image: mongo:8
-      ports:
-        - 27017:27017
+        image: mongo:8
+        ports:
+          - 27017:27017
     steps:
       - uses: actions/checkout@v5
       - name: Java 21
@@ -35,3 +35,5 @@ jobs:
           cache: maven
       - name: Compilar y ejecutar las pruebas
         run: mvn -B -ntp verify
+        env:
+          MONGODB_URI: mongodb://localhost:27017/catalog
